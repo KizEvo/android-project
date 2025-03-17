@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText inputA = (EditText) findViewById(R.id.editTextNumberSigned1);
                 EditText inputB = (EditText) findViewById(R.id.editTextNumberSigned2);
                 EditText inputC = (EditText) findViewById(R.id.editTextNumberSigned3);
+
                 try {
                     float inputANumb = Float.parseFloat(inputA.getText().toString());
                     float inputBNumb = Float.parseFloat(inputB.getText().toString());

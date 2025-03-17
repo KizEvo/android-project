@@ -26,26 +26,33 @@ public class ResultActivity extends AppCompatActivity {
         });
         // Get pointer to Result id
         TextView result = (TextView) findViewById(R.id.res_text1);
+        TextView fxResult = (TextView) findViewById(R.id.res_text0);
         // Get the inputs from MainActivity bundle
         Bundle bundle = getIntent().getExtras();
-        // Calculate the equation
         if (bundle != null) {
+            float inputA = bundle.getFloat("inputA");
+            float inputB = bundle.getFloat("inputB");
+            float inputC = bundle.getFloat("inputC");
+            String fxOutput = "f(x) = " + Float.toString(inputA) + "x^2" + " + (" + Float.toString(inputB) + ")x + (" + Float.toString(inputC) + ")";
+            // Set the fx textView
+            fxResult.setText(fxOutput);
+            // Calculate the equation
             QuadraticEquation fx = new QuadraticEquation(
-                    bundle.getFloat("inputA"),
-                    bundle.getFloat("inputB"),
-                    bundle.getFloat("inputC")
+                    inputA,
+                    inputB,
+                    inputC
             );
             String [] res = fx.Solve();
             String output = "";
             switch (res[0]) {
                 case "LESS":
-                    output += "Equation has 2 distinct roots";
+                    output += "Equation has no real roots";
                     break;
                 case "EQUAL":
                     output += "Equation has 1 distinct root";
                     break;
                 case "LARGER":
-                    output += "Equation has no real roots";
+                    output += "Equation has 2 distinct roots";
                     break;
             }
             output += "\nx0: " + res[1] + "\n";
@@ -55,7 +62,9 @@ public class ResultActivity extends AppCompatActivity {
         } else {
             // Error case
             String output = "Inputs cannot be empty";
+            String fxOutput = "f(x) = Error";
             result.setText(output);
+            fxResult.setText(fxOutput);
         }
         Button btn = (Button) findViewById(R.id.res_button);
 
