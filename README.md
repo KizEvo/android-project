@@ -2,8 +2,9 @@
 _A combination of Mobile Application Development projects_
 - Subject: Mobile Application Development
 - Lecturer: MSc. NGUYỄN QUANG ANH
-- Decription: This repository includes projects implemented on Android Studio for the "Mobile Application Development" course's exercise at HCMUS
-- Group: 4
+- Description: This repository includes projects implemented on Android Studio for the "Mobile Application Development" course exercise at HCMUS
+
+# Group 4 Member List
 
 | Student ID | Name           | Username                                     |
 |------------|----------------|----------------------------------------------|
@@ -14,4 +15,8 @@ _A combination of Mobile Application Development projects_
 _Requirement: create an Quadratic Equation Solver app using Intent and Bundle_
 (⇲[Go to Week1 branch](https://github.com/KizEvo/android-project/tree/week1))
 
-![image](https://github.com/user-attachments/assets/9eea9d8e-8ac6-4eb3-bbdb-4a4a448a3f03)
+![image](https://github.com/user-attachments/assets/c71b26bb-e60e-4792-9a00-1eaebdb94dcd)
+
+## Week 2
+## Week 3
+## Week 4
