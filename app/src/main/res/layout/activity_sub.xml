@@ -5,12 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SubActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HỌC SINH LỚP 1"
+        android:text="CÔ GIÁO SỬA CHÍNH TẢ"
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_marginTop="-650dp"
@@ -24,27 +24,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="-220dp"
         android:layout_marginTop="-470dp"
-        android:text="Bài Làm"
+        android:text="Đoạn Văn"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cô Sửa Bài"
-        android:textSize="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="-250dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/studentWork"
+        android:id="@+id/editField"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/rectangle_border"
@@ -56,24 +44,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/teacherWork"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/rectangle_border"
-        android:textSize="20dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginLeft="90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUBMIT"
+        android:text="RETURN WORK"
         android:textSize="20dp"
         android:layout_marginTop="500dp"
         android:layout_marginLeft="0dp"
@@ -81,6 +56,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
