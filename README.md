@@ -4,7 +4,7 @@ _A combination of Mobile Application Development projects_
 - Lecturer: MSc. NGUYỄN QUANG ANH
 - Description: This repository includes projects implemented on Android Studio for the "Mobile Application Development" course exercise at HCMUS
 
-# Group 4 Member List
+## Group 4 Member List
 
 | Student ID | Name           | Username                                     |
 |------------|----------------|----------------------------------------------|
@@ -17,6 +17,11 @@ _Requirement: create an Quadratic Equation Solver app using Intent and Bundle_
 
 ![image](https://github.com/user-attachments/assets/c71b26bb-e60e-4792-9a00-1eaebdb94dcd)
 
-## Week 2
+## Week 2 - Data Exchanging using Explicit Intent
+_Requirement: exchanging data between activities with corresponding identified request_
+(⇲[Go to Week2 branch](https://github.com/KizEvo/android-project/tree/week2))
+
+![image](https://github.com/user-attachments/assets/e0afc27c-4169-4eee-93e1-4ce7e966a7dd)
+
 ## Week 3
 ## Week 4
