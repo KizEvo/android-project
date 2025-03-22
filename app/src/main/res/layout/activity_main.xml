@@ -58,6 +58,7 @@
 
     <EditText
         android:id="@+id/teacherWork"
+        android:clickable="false"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/rectangle_border"
