@@ -4,7 +4,7 @@ _A combination of Mobile Application Development projects_
 - Lecturer: MSc. NGUYỄN QUANG ANH
 - Description: This repository includes projects implemented on Android Studio for the "Mobile Application Development" course exercise at HCMUS
 
-# Group 4 Member List
+## Group 4 Member List
 
 | Student ID | Name           | Username                                     |
 |------------|----------------|----------------------------------------------|
