@@ -1,19 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_margin="15dp">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rectangle_border_cbg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THÔNG TIN SINH VIÊN"
+            android:textColor="#F0ECEC"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_border">
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Họ và tên:"
+                android:textSize="22dp"/>
+
+            <EditText
+                android:id="@+id/nameET"
+                android:layout_width="220dp"
+                android:layout_height="58dp"
+                android:height="48dp"
+                android:hint="Student Name" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MSSV:"
+                android:textSize="22dp"/>
+            <EditText
+                android:height="48dp"
+                android:id="@+id/idET"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Student ID"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lớp:"
+                android:textSize="22dp"/>
+            <EditText
+                android:height="48dp"
+                android:id="@+id/classET"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Class"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SĐT:"
+                android:textSize="22dp"/>
+            <EditText
+                android:height="48dp"
+                android:id="@+id/phoneNumET"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rectangle_border_cbg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F0ECEC"
+            android:text="SINH VIÊN NĂM"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm 1"
+            android:id="@+id/firstYearRB"
+            android:paddingRight="8dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm 2"
+            android:id="@+id/secondYearRB"
+            android:paddingRight="8dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm 3"
+            android:id="@+id/thirdYearRB"
+            android:paddingRight="8dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm 4"
+            android:id="@+id/fourthYearRB"
+            android:paddingRight="8dp"/>
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rectangle_border_cbg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHUYÊN NGÀNH"
+            android:textColor="#F0ECEC"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rectangle_border"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/electionicCB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ĐT"
+            android:paddingRight="20dp"/>
+
+        <CheckBox
+            android:id="@+id/telecomCB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VT"
+            android:paddingRight="20dp"/>
+
+        <CheckBox
+            android:id="@+id/computerCB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MT-HTN"
+            android:paddingRight="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rectangle_border_cbg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KẾ HOẠCH CỦA BẢN THÂN"
+            android:textColor="#F0ECEC"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/planET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_border"
+        android:hint="Enter your plan"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:gravity="top|start"/>
+
+    <Button
+        android:id="@+id/sendBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:text="GỬI THÔNG TIN" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
