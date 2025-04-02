@@ -23,5 +23,10 @@ _Requirement: exchanging data between activities with corresponding identified r
 
 ![image](https://github.com/user-attachments/assets/e0afc27c-4169-4eee-93e1-4ce7e966a7dd)
 
-## Week 3
+## Week 3 - Data Exchanging & Add-On Services
+_Requirement: exchanging data between activities and other apps_
+(⇲[Go to Week3 branch](https://github.com/KizEvo/android-project/tree/week3))
+
+![image](https://github.com/user-attachments/assets/bc50877b-c146-4830-a732-89a9d5478e99)
+
 ## Week 4
