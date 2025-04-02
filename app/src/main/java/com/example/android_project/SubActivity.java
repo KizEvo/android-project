@@ -1,22 +1,47 @@
 package com.example.android_project;
 
+import static android.provider.MediaStore.ACTION_IMAGE_CAPTURE;
+
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SubActivity extends AppCompatActivity {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            // Get the image as a Bitmap
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = null;
+            if (extras != null) {
+                imageBitmap = (Bitmap) extras.get("data");
+            } else {
+                return;
+            }
+            // Display the image in an ImageView
+            ImageView imageView = findViewById(R.id.avatarIV);
+            imageView.setImageBitmap(imageBitmap);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +56,7 @@ public class SubActivity extends AppCompatActivity {
         Button backBT = findViewById(R.id.backBT);
         Button callBT = findViewById(R.id.callBT);
         Button smsBT = findViewById(R.id.smsBT);
+        Button cameraBT = findViewById(R.id.cameraBT);
 
         //Link object by component ID
         TextView nameTV = findViewById(R.id.nameTV);
@@ -109,6 +135,18 @@ public class SubActivity extends AppCompatActivity {
                 startActivity(sms_intent);
             }
         });
-
+        cameraBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Check Camera Permission
+                if (ContextCompat.checkSelfPermission(SubActivity.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(SubActivity.this, new String[]{Manifest.permission.CAMERA}, 1);
+                    return;
+                }
+                // Open Camera
+                Intent takePictureIntent = new Intent(ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePictureIntent, 1);
+            }
+        });
     }
 }
