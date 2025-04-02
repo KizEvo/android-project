@@ -44,6 +44,14 @@
                 android:background="@drawable/rectangle_round_border"
                 android:contentDescription="Description of the image"/>
 
+            <Button
+                android:id="@+id/cameraBT"
+                android:background="@drawable/camera"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,34 +158,31 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <GridLayout
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:columnCount="3">
 
-
-            <Button
-                android:id="@+id/smsBT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="SMS" />
             <Button
                 android:id="@+id/callBT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="CALL" />
+                android:background="@drawable/telephone"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <Button
+                android:id="@+id/smsBT"
+                android:background="@drawable/sms"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"/>
             <Button
                 android:id="@+id/backBT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="BACK" />
+                android:background="@drawable/back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
 
-        </LinearLayout>
+        </GridLayout>
 
     </LinearLayout>
 
