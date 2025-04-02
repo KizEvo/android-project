@@ -30,6 +30,7 @@ public class SubActivity extends AppCompatActivity {
 
         Button backBT = findViewById(R.id.backBT);
         Button callBT = findViewById(R.id.callBT);
+        Button smsBT = findViewById(R.id.smsBT);
 
         //Link object by component ID
         TextView nameTV = findViewById(R.id.nameTV);
@@ -82,6 +83,30 @@ public class SubActivity extends AppCompatActivity {
                 }
                 // Start the call if permission is granted
                 startActivity(call_intent);
+            }
+        });
+        smsBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the phone number from EditText
+                String phoneNumber = phoneNumTV.getText().toString().trim();
+                String message = nameTV.getText().toString() + "\n"
+                        + sidTV.getText().toString() + "\n"
+                        + classTV.getText().toString() + " \n"
+                        + phoneNumTV.getText().toString() + "\n"
+                        + seniorityTV.getText().toString() + "\n"
+                        + majorityTV.getText().toString() + "\n"
+                        + planTV.getText().toString() + "\n";
+                // Check if the message is empty
+                if (phoneNumber.isEmpty()) {
+                    return;
+                }
+                // Open the default SMS app with user input message
+                Intent sms_intent = new Intent(Intent.ACTION_VIEW);
+                sms_intent.setData(Uri.parse("smsto:" + phoneNumber));
+                sms_intent.putExtra("sms_body", message);
+
+                startActivity(sms_intent);
             }
         });
 
