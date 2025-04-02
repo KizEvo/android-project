@@ -1,6 +1,8 @@
 package com.example.android_project;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -26,6 +29,7 @@ public class SubActivity extends AppCompatActivity {
         });
 
         Button backBT = findViewById(R.id.backBT);
+        Button callBT = findViewById(R.id.callBT);
 
         //Link object by component ID
         TextView nameTV = findViewById(R.id.nameTV);
@@ -57,5 +61,29 @@ public class SubActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        callBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the phone number from EditText
+                String phoneNumber = phoneNumTV.getText().toString().trim();
+                // Check if the phone number is empty
+                if (phoneNumber.isEmpty()) {
+                    return;
+                }
+                // Create the Intent for making a call
+                Intent call_intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
+                // Check for CALL_PHONE permission
+                if (ActivityCompat.checkSelfPermission(SubActivity.this,
+                        android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // Request permission from the user
+                    ActivityCompat.requestPermissions(SubActivity.this,
+                            new String[]{android.Manifest.permission.CALL_PHONE}, 1);
+                    return;
+                }
+                // Start the call if permission is granted
+                startActivity(call_intent);
+            }
+        });
+
     }
 }
