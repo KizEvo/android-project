@@ -1,19 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:padding="35sp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Display -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/circle1"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginHorizontal="10sp"
+            android:backgroundTint="#637ee0"
+            android:clickable="false"
+            android:background="@drawable/circle" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/circle2"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginHorizontal="10sp"
+            android:backgroundTint="#3b5bcc"
+            android:clickable="false"
+            android:background="@drawable/circle" />
+
+        <TextView
+            android:id="@+id/circle3"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginHorizontal="10sp"
+            android:clickable="false"
+            android:background="@drawable/circle" />
+    </LinearLayout>
+
+<!--  Title  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="40sp">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:clickable="false"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textColor="#5d7ef5"
+            android:textSize="25sp" />
+    </LinearLayout>
+<!--  Email  -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:paddingVertical="25sp"
+        android:textSize="20sp"
+        android:inputType="textEmailAddress"
+        android:hint="Email" />
+
+<!--  Password  -->
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="25sp"
+        android:textSize="20sp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+<!--  Forget password  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/forgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget password ?"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#5d7ef5"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_marginVertical="15sp"
+            android:layout_marginHorizontal="10sp" />
+    </LinearLayout>
+
+<!--  Login button  -->
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:backgroundTint="#00aaff"
+        android:layout_marginTop="15sp"
+        android:paddingVertical="15sp"/>
+
+<!--  Sign up button  -->
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:backgroundTint="#70cfff"
+        android:layout_marginTop="15sp"
+        android:paddingVertical="15sp"/>
+
+</LinearLayout>
