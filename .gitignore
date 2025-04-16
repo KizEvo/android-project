@@ -2,6 +2,8 @@
 .gradle/
 build/
 
+FetchAIAPI.java
+
 # Local configuration file (sdk path, etc)
 local.properties
 
