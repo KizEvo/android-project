@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 
 
@@ -38,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         // Instantiate components
         EditText editTextMessage = findViewById(R.id.editTextMessage);
@@ -103,4 +100,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

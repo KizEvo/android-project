@@ -14,8 +14,11 @@ import android.widget.LinearLayout;
 
 import java.util.List;
 
+import io.noties.markwon.Markwon;
+
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
     private List<Message> messages;
+    private Markwon markwon;
 
     public MessageAdapter(List<Message> messages) {
         this.messages = messages;
@@ -25,13 +28,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     @Override
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message, parent, false);
+        markwon = Markwon.create(parent.getContext());
         return new MessageViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
         Message message = messages.get(position);
-        holder.messageTextView.setText(message.getContent());
+//        holder.messageTextView.setText(message.getContent());
 
         // Get the parent LinearLayout
         LinearLayout parentLayout = (LinearLayout) holder.messageTextView.getParent();
@@ -40,18 +44,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
 
-        // Set margins for better spacing between messages
         layoutParams.setMargins(8, 4, 8, 4);
 
         // Configure alignment and styling based on sender
         if (message.isSentByUser()) {
-            // User messages aligned right
             layoutParams.gravity = Gravity.END;
+            holder.messageTextView.setText(message.getContent());
             holder.messageTextView.setBackgroundResource(R.drawable.sender_message_bg);
             holder.messageTextView.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.white));
         } else {
-            // Received messages aligned left
             layoutParams.gravity = Gravity.START;
+            markwon.setMarkdown(holder.messageTextView, message.getContent());
+            holder.messageTextView.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
             holder.messageTextView.setBackgroundResource(R.drawable.receiver_message_bg);
             holder.messageTextView.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.black));
         }
