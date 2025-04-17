@@ -38,4 +38,11 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+
+    // Markwon library - Use for displaying MarkDown text
+    implementation 'io.noties.markwon:core:4.6.2'
+
+    // Optional plugins depending on your needs
+    implementation 'io.noties.markwon:html:4.6.2'
+    implementation 'io.noties.markwon:linkify:4.6.2'
 }

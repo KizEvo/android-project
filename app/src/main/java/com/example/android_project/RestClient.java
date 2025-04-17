@@ -38,6 +38,9 @@ public class RestClient {
     }
 
     public void post(String message, int maxOutputTokens, String apiKey, RestCallback callback) {
+        if(apiKey == null || apiKey.isEmpty()) {
+            callback.onFailure("API key is empty or null!");
+        }
         // Build the full URL with API key
         String url = BASE_URL + apiKey;
 
