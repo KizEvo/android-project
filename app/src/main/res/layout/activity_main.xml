@@ -7,13 +7,216 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <View
+        android:id="@+id/background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:background="@drawable/gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/furniture"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#f2d78d"
+        android:src="@mipmap/furniture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Furniture"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/furniture"
+        app:layout_constraintStart_toStartOf="@+id/furniture"
+        app:layout_constraintTop_toBottomOf="@+id/furniture" />
+
+    <ImageView
+        android:id="@+id/cart"
+        android:layout_width="115sp"
+        android:layout_height="115sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#f0c5c0"
+        android:src="@mipmap/cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <ImageView
+        android:id="@+id/flight"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#e3ff47"
+        android:src="@mipmap/flight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flight"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/flight"
+        app:layout_constraintStart_toStartOf="@+id/flight"
+        app:layout_constraintTop_toBottomOf="@+id/flight" />
+
+    <ImageView
+        android:id="@+id/fashion"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#008c2a"
+        android:src="@mipmap/fashion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fashion"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/fashion"
+        app:layout_constraintStart_toStartOf="@+id/fashion"
+        app:layout_constraintTop_toBottomOf="@+id/fashion" />
+
+    <ImageView
+        android:id="@+id/offers"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#4db8ff"
+        android:src="@mipmap/offer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.716" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offer"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/offers"
+        app:layout_constraintStart_toStartOf="@+id/offers"
+        app:layout_constraintTop_toBottomOf="@+id/offers" />
+
+    <ImageView
+        android:id="@+id/mobile"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#b2b7d1"
+        android:src="@mipmap/mobile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/mobile"
+        app:layout_constraintStart_toStartOf="@+id/mobile"
+        app:layout_constraintTop_toBottomOf="@+id/mobile" />
+
+    <ImageView
+        android:id="@+id/beauty"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#FFFFFF"
+        android:src="@mipmap/beauty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.716" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beauty"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/beauty"
+        app:layout_constraintStart_toStartOf="@+id/beauty"
+        app:layout_constraintTop_toBottomOf="@+id/beauty" />
+
+    <ImageView
+        android:id="@+id/hotel"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#ff4f78"
+        android:src="@mipmap/hotel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hotel"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/hotel"
+        app:layout_constraintStart_toStartOf="@+id/hotel"
+        app:layout_constraintTop_toBottomOf="@+id/hotel" />
+
+    <ImageView
+        android:id="@+id/ledtv"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:background="@drawable/circle"
+        android:backgroundTint="#e07165"
+        android:src="@mipmap/ledtv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Led TV"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/ledtv"
+        app:layout_constraintStart_toStartOf="@+id/ledtv"
+        app:layout_constraintTop_toBottomOf="@+id/ledtv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
