@@ -1,6 +1,5 @@
-package com.example.android_project.appUI;
+package com.example.android_project.appUI.subActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,8 +46,6 @@ public class BannerClickActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-//                Intent intent = new Intent(BannerClickActivity.this, HomeFragment.class);
-//                startActivity(intent);
             }
         });
     }

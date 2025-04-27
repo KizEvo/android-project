@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +13,14 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 
 import com.example.android_project.R;
+import com.example.android_project.appUI.subActivity.BannerClickActivity;
 
 public class HomeFragment extends Fragment {
+    private int scrollPosition = 0;
 
     public HomeFragment() {
         // Required empty public constructor
     }
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//        }
-//    }
-
-    int scrollPosition = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,77 +29,50 @@ public class HomeFragment extends Fragment {
 
         /*-----AUTO-SCROLL BEHAVIOR FOR SCROLLVIEW BANNERS-----*/
         Handler handler = new Handler();
-
-        Runnable runnable = new Runnable() {
+        HorizontalScrollView scrollView = view.findViewById(R.id.horizontalScrollView);
+        Runnable autoScrollRunnable = new Runnable() {
             @Override
             public void run() {
-                HorizontalScrollView scrollView = view.findViewById(R.id.horizontalScrollView);
-                scrollPosition += 380;
-                Log.d("DEBUG", "scrollPos = " + scrollPosition + "Boundary = " + scrollView.getChildAt(0).getWidth());
-                if (scrollPosition >= 380*3) {
-                    scrollPosition = 0; // Reset to the beginning
+                if(scrollView != null) {
+                    scrollPosition += 380;
+                    if (scrollPosition >= 380 * 3) {
+                        scrollPosition = 0; // Reset to the beginning
+                    }
+                    scrollView.smoothScrollTo(scrollPosition, 0);
                 }
-                scrollView.smoothScrollTo(scrollPosition, 0);
                 handler.postDelayed(this, 3000); // Change delay as needed
             }
         };
 
         // Start auto-scrolling
-        handler.postDelayed(runnable, 3000);
+        handler.postDelayed(autoScrollRunnable, 3000);
+
 
         /*-----CLICKABLE IMAGEVIEW BEHAVIOR-----*/
-        ImageView banner1 = view.findViewById(R.id.banner1);
-        ImageView banner2 = view.findViewById(R.id.banner2);
-        ImageView banner3 = view.findViewById(R.id.banner3);
-        ImageView banner4 = view.findViewById(R.id.banner4);
-        ImageView banner5 = view.findViewById(R.id.banner5);
-
-        banner1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-                intent.putExtra("choseBanner", "banner1");
-                startActivity(intent);
-            }
-        });
-
-        banner2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-                intent.putExtra("choseBanner", "banner2");
-                startActivity(intent);
-            }
-        });
-
-        banner3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-                intent.putExtra("choseBanner", "banner3");
-                startActivity(intent);
-            }
-        });
-
-        banner4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-                intent.putExtra("choseBanner", "banner4");
-                startActivity(intent);
-            }
-        });
-
-        banner5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-                intent.putExtra("choseBanner", "banner5");
-                startActivity(intent);
-            }
-        });
+        setupBannerClickListeners(view);
 
         // Inflate the layout for this fragment
         return view;
     }
+
+    //Click Listener
+    private void setupBannerClickListeners(View view) {
+        int[] bannerIds = {R.id.banner1, R.id.banner2, R.id.banner3, R.id.banner4, R.id.banner5};
+        String[] bannerNames = {"banner1", "banner2", "banner3", "banner4", "banner5"};
+
+        for (int i = 0; i < bannerIds.length; i++) {
+            ImageView banner = view.findViewById(bannerIds[i]);
+            final String bannerName = bannerNames[i];
+
+            banner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), BannerClickActivity.class);
+                    intent.putExtra("choseBanner", bannerName);
+                    startActivity(intent);
+                }
+            });
+        }
+    }
+
 }

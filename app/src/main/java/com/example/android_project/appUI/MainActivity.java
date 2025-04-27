@@ -15,6 +15,9 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        ViewPager2 viewPager = findViewById(R.id.viewPager);
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabLayout);
 
         TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager(), getLifecycle());
         viewPager.setAdapter(adapter);
@@ -48,5 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }).attach();
+
     }
+
 }
