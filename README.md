@@ -13,3 +13,12 @@ _A combination of Mobile Application Development projects_
 | 21200328   | NGUYỄN ĐỨC PHÚ | [@KizEvo](https://github.com/KizEvo) |
 
 ## Result
+
+### Exercise 5.1
+
+![image](https://github.com/user-attachments/assets/c617a6ae-5038-4cb3-bacb-8fb3d54ebfd9)
+
+### Exercise 5.2
+
+![image](https://github.com/user-attachments/assets/e60803bf-e4ef-4314-8ca9-9844ad52725a)
+
