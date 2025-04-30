@@ -12,79 +12,137 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:background="@drawable/mtb_header"/>
+        </LinearLayout>
+
+        <VideoView
+            android:id="@+id/videoViewBg"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"/>
+
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#313131"
+            android:text="A Product of Group 4 \- Mobile Application Development Project"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="10sp"
+            android:textColor="#313131"
+            android:text="A Movie Ticket Booking Application on Android"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:textColor="#313131"
+            android:text="Powered by Android Studio"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Featured Movies"
+            android:text="App Description"
+            android:textColor="#A06919"
             android:textSize="20sp"
             android:textStyle="bold" />
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#777777" />
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:requiresFadingEdge="horizontal"
-            android:fadingEdgeLength="30dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#313131"
+            android:textSize="16sp"
+            android:text="@string/project_introduction"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/banner1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_width="110dp"
-                    android:layout_height="170dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/poster_86" />
-
-                <ImageView
-                    android:id="@+id/banner2"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_width="120dp"
-                    android:layout_height="170dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/poster_josee" />
-
-                <ImageView
-                    android:id="@+id/banner3"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_width="120dp"
-                    android:layout_height="170dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/poster_violet" />
-
-                <ImageView
-                    android:id="@+id/banner4"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_width="120dp"
-                    android:layout_height="170dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/poster_yourname" />
-
-                <ImageView
-                    android:id="@+id/banner5"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_width="120dp"
-                    android:layout_height="170dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/poster_yourlie" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <View
+        <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="800dp"
-            android:background="#E79797" />
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="About Us"
+            android:textColor="#A06919"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#777777" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="center"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Student ID" />
+                <TextView
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Name" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="21200310" />
+                <TextView
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Lê Ngọc Long" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="21200328" />
+                <TextView
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Nguyễn Đức Phú" />
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 
