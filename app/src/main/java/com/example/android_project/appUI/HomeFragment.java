@@ -1,6 +1,8 @@
 package com.example.android_project.appUI;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,12 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.VideoView;
 
 import com.example.android_project.R;
 import com.example.android_project.appUI.subActivity.BannerClickActivity;
 
 public class HomeFragment extends Fragment {
-    private int scrollPosition = 0;
+    private VideoView videoViewBg;
+    private int currentVideoPosition = 0;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -27,52 +31,37 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /*-----AUTO-SCROLL BEHAVIOR FOR SCROLLVIEW BANNERS-----*/
-        Handler handler = new Handler();
-        HorizontalScrollView scrollView = view.findViewById(R.id.horizontalScrollView);
-        Runnable autoScrollRunnable = new Runnable() {
+        /*-----LOOPING INTRO VIDEO-----*/
+        videoViewBg = view.findViewById(R.id.videoViewBg);
+        Uri uri = Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.raw.intro);
+        videoViewBg.setVideoURI(uri);
+
+        videoViewBg.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
-            public void run() {
-                if(scrollView != null) {
-                    scrollPosition += 380;
-                    if (scrollPosition >= 380 * 3) {
-                        scrollPosition = 0; // Reset to the beginning
-                    }
-                    scrollView.smoothScrollTo(scrollPosition, 0);
-                }
-                handler.postDelayed(this, 3000); // Change delay as needed
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+                videoViewBg.seekTo(currentVideoPosition);
+                videoViewBg.start();
             }
-        };
+        });
 
-        // Start auto-scrolling
-        handler.postDelayed(autoScrollRunnable, 3000);
-
-
-        /*-----CLICKABLE IMAGEVIEW BEHAVIOR-----*/
-        setupBannerClickListeners(view);
-
-        // Inflate the layout for this fragment
         return view;
     }
 
-    //Click Listener
-    private void setupBannerClickListeners(View view) {
-        int[] bannerIds = {R.id.banner1, R.id.banner2, R.id.banner3, R.id.banner4, R.id.banner5};
-        String[] bannerNames = {"banner1", "banner2", "banner3", "banner4", "banner5"};
+    //Pause and save video playing process
+    @Override
+    public void onPause() {
+        super.onPause();
+        currentVideoPosition = videoViewBg.getCurrentPosition();
+        videoViewBg.pause();
+    }
 
-        for (int i = 0; i < bannerIds.length; i++) {
-            ImageView banner = view.findViewById(bannerIds[i]);
-            final String bannerName = bannerNames[i];
-
-            banner.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-                    intent.putExtra("choseBanner", bannerName);
-                    startActivity(intent);
-                }
-            });
-        }
+    //Continue playing video
+    @Override
+    public void onResume() {
+        super.onResume();
+        videoViewBg.seekTo(currentVideoPosition);
+        videoViewBg.start();
     }
 
 }
