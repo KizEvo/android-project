@@ -36,8 +36,8 @@ public class BookingFragment extends Fragment {
             @Override
             public void run() {
                 if(scrollView != null) {
-                    scrollPosition += 380;
-                    if (scrollPosition >= 380 * 3) {
+                    scrollPosition += 385;
+                    if (scrollPosition >= 385 * 3) {
                         scrollPosition = 0; // Reset to the beginning
                     }
                     scrollView.smoothScrollTo(scrollPosition, 0);
