@@ -62,8 +62,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = EmailET.getText().toString().trim();
                 String password = PasswordET.getText().toString().trim();
 
-                checkEmpty(email, password);
-
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Email/Password must not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 //Get email and password from EditText fields
                 //and verify with account stored in Database
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -92,11 +95,4 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Check empty fields
-    private void checkEmpty(String email, String password) {
-        //Check empty Email and Password
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(RegisterActivity.this, "Email/Password must not be empty!", Toast.LENGTH_SHORT).show();
-        }
-    }
 }

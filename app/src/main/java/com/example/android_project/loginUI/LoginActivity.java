@@ -63,14 +63,19 @@ public class LoginActivity extends AppCompatActivity {
                 String email = EmailET.getText().toString().trim();
                 String password = PasswordET.getText().toString().trim();
 
-                checkEmpty(email, password);
+                //Check empty Email and Password
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Email/Password must not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 //Get email and password from EditText fields
                 //and verify with account stored in Database
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
@@ -95,11 +100,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Check empty fields
-    private void checkEmpty(String email, String password) {
-        //Check empty Email and Password
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(LoginActivity.this, "Email/Password must not be empty!", Toast.LENGTH_SHORT).show();
-        }
-    }
 }
