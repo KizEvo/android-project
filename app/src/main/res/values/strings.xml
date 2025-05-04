@@ -7,4 +7,11 @@
         This is a real time system connected to a clouding database, you can
         know the status of the actual theater slots and make your own choice.
     </string>
+    <string name="description_template">
+        "86 -Eighty Six-" is a 2021-2022 anime series that centers on the conflict
+        between the Republic of San Magnolia and the Empire of Giad. While the Republic
+        claims to be fighting a "war without casualties" using unmanned drones,
+        the reality is that young people, branded the "86," are forced to pilot those drones
+        in a devastating and unequal conflict.
+    </string>
 </resources>

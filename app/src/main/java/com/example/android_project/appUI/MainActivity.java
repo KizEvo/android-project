@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager(), getLifecycle());
         viewPager.setAdapter(adapter);
 
+        //Keep original icon colors
+        tabLayout.setTabIconTint(null);
+
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             switch (position) {
                 case 0:

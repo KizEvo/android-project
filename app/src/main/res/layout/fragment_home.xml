@@ -19,9 +19,11 @@
             android:orientation="vertical"
             android:layout_gravity="center">
             <ImageView
+                android:id="@+id/headerImageView"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
-                android:background="@drawable/mtb_header"/>
+                android:contentDescription="Header image"
+                android:src="@drawable/mtb_header"/>
         </LinearLayout>
 
         <TextView
@@ -50,7 +52,7 @@
             android:layout_marginLeft="10dp"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:textColor="#313131"
+            android:textColor="?attr/colorOnSurface"
             android:text="A Product of Group 4 \- Mobile Application Development Project"/>
 
         <TextView
@@ -58,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:textSize="10sp"
-            android:textColor="#313131"
+            android:textColor="?attr/colorOnSurface"
             android:text="A Movie Ticket Booking Application on Android"/>
 
         <TextView
@@ -67,7 +69,7 @@
             android:layout_marginLeft="10dp"
             android:textSize="10sp"
             android:textStyle="italic"
-            android:textColor="#313131"
+            android:textColor="?attr/colorOnSurface"
             android:text="Powered by Android Studio"/>
 
         <TextView
@@ -91,7 +93,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:textColor="#313131"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp"
             android:text="@string/project_introduction"/>
 
@@ -124,11 +126,13 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
                     android:text="Student ID" />
                 <TextView
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
                     android:text="Name" />
             </TableRow>
 
@@ -136,10 +140,12 @@
                 <TextView
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
                     android:text="21200310" />
                 <TextView
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
                     android:text="Lê Ngọc Long" />
             </TableRow>
 
@@ -147,10 +153,12 @@
                 <TextView
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
                     android:text="21200328" />
                 <TextView
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
                     android:text="Nguyễn Đức Phú" />
             </TableRow>
         </TableLayout>

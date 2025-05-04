@@ -6,11 +6,192 @@
     android:fillViewport="false"
     tools:context=".appUI.subActivity.BannerClickActivity"
     android:id="@+id/bannerClickSV">
-
-    <Button
-        android:id="@+id/backBT"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BACK"/>
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backBT"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/back_red"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/headerImageView"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:contentDescription="Header image"
+                android:src="@drawable/mtb_header"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#A40000"
+            android:text="Movie Title"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#CACACA"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/posterIV"
+                android:layout_width="140dp"
+                android:layout_height="200dp"
+                android:contentDescription="Poster image"
+                android:src="@drawable/poster_86"/>
+
+            <TableLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
+
+                <TableRow>
+                    <TextView
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Director:" />
+                    <TextView
+                        android:id="@+id/directorTV"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Director Name" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Actor:" />
+
+                    <TextView
+                        android:id="@+id/actorTV"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:text="Actor Name"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Category:" />
+                    <TextView
+                        android:id="@+id/categoryTV"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Category" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Release:" />
+                    <TextView
+                        android:id="@+id/releaseDateTV"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="04/05/2025" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Duration:" />
+                    <TextView
+                        android:id="@+id/durationTV"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="100 min" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="Rated:" />
+                    <TextView
+                        android:id="@+id/rateTV"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:textSize="16sp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:text="T16 - 16+" />
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Description"
+            android:textColor="#A06919"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#777777"/>
+        <TextView
+            android:id="@+id/descriptionTV"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description_template"
+            android:textColor="?attr/colorOnSurface"/>
+
+    </LinearLayout>
 </ScrollView>
