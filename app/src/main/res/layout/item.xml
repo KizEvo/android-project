@@ -11,7 +11,7 @@
         android:gravity="center">
         <ImageView
             android:id="@+id/image"
-            android:src="@drawable/android"
+            android:src="@drawable/person"
             android:layout_width="60sp"
             android:layout_height="wrap_content"/>
 
