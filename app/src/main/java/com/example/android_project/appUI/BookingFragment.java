@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,15 @@ import android.widget.ImageView;
 
 import com.example.android_project.R;
 import com.example.android_project.appUI.subActivity.BannerClickActivity;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.List;
 
 public class BookingFragment extends Fragment {
     private int scrollPosition = 0;
+    private FirestoreDocumentFetcher documentFetcher;
+    private static final String TAG = "BookingFragment";
 
     public BookingFragment() {
         // Required empty public constructor
@@ -27,6 +34,34 @@ public class BookingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Initialize Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Initialize the fetcher
+        documentFetcher = new FirestoreDocumentFetcher(db);
+
+        // Fetch all documents from the "users" collection
+        documentFetcher.fetchAllDocuments("MTBMovie", new FirestoreDocumentFetcher.CollectionCallback() {
+            @Override
+            public void onSuccess(List<DocumentSnapshot> documents) {
+                Log.d("Firestore", "Fetched " + documents.size() + " documents");
+                if (documents.isEmpty()) {
+                    Log.d(TAG, "Empty document");
+                    return;
+                }
+                for (DocumentSnapshot document : documents) {
+                    String documentId = document.getId();
+                    String posterName = document.getString("posterName");
+                    String movieName = document.getString("movieName");
+                    Log.d(TAG, "Document ID: " + documentId + ", poster name: " + posterName + ", movie name: " + movieName);
+                }
+            }
+            @Override
+            public void onFailure(Exception e) {
+                Log.e(TAG, "Error fetching collection", e);
+            }
+        });
+
         View view = inflater.inflate(R.layout.fragment_booking, container, false);
 
         /*-----AUTO-SCROLL BEHAVIOR FOR SCROLLVIEW BANNERS-----*/
