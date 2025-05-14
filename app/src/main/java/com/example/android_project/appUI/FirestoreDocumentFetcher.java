@@ -1,5 +1,7 @@
 package com.example.android_project.appUI;
 
+import com.example.android_project.appUI.object.air;
+import com.example.android_project.appUI.object.user;
 import android.util.Log;
 import androidx.annotation.NonNull;
 
@@ -11,12 +13,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class FirestoreDocumentFetcher {
     private static final String TAG = "FirestoreDocumentFetcher";
     private FirebaseFirestore db;
+    private final String userColl = "MTBUser";
+    private final String airColl = "MTBAir";
+    private final String movieColl = "MTBMovie";
 
     public interface DocumentReadCallback {
         void onSuccess(DocumentSnapshot document);
@@ -77,6 +83,17 @@ public class FirestoreDocumentFetcher {
         });
     }
 
+    // Fetch all x document
+    public void fetchAllMTBAir(@NonNull CollectionCallback callback) {
+        fetchAllDocuments(airColl, callback);
+    }
+    public void fetchAllMTBMovie(@NonNull CollectionCallback callback) {
+        fetchAllDocuments(movieColl, callback);
+    }
+    public void fetchAllMTBUser(@NonNull CollectionCallback callback) {
+        fetchAllDocuments(userColl, callback);
+    }
+
     // Add a document
     public void addDocument(String collectionPath, String documentId, Map<?, ?> data, @NonNull DocumentAddCallback callback) {
         db.collection(collectionPath).document(documentId)
@@ -95,5 +112,28 @@ public class FirestoreDocumentFetcher {
                 callback.onFailure(new Exception("Error writing document"));
             }
         });
+    }
+
+    /* Fetch MTB* document */
+    //
+    // This overwrite the existing document
+    // To update existing document, keep all entry the same and only update/add new in "input" parameter
+    // For example, first we fetch the MTBAir document and store it in "class air". When we want to
+    // update the slot[], then we can modify the object in local and pass it as input to this function
+    // to update the database
+
+    // documentId follows this format: mov_<short_name>, for example: mov_josee
+    public void addMTBAirDocument(String documentId, air input, @NonNull DocumentAddCallback callback) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("movie", input.getMovie());
+        data.put("room", input.getRoom());
+        data.put("slot", input.getSlot());
+        addDocument(airColl, documentId, data, callback);
+    }
+    // documentId is the user gmail, for example: jackson@gmail.com
+    public void addMTBUserDocument(String documentId, user input, @NonNull DocumentAddCallback callback) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("booked", input.getBooked());
+        addDocument(userColl, documentId, data, callback);
     }
 }
