@@ -10,6 +10,7 @@ public class movie {
     private LocalDate debutDate;
     private int duration;   //in min
     private String language;
+    private String posterName;
 
     movie(String movieName, String directorName, String[] casterName,
                              String category, LocalDate debutDate, int duration, String language) {
