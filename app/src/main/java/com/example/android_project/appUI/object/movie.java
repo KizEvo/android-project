@@ -1,19 +1,24 @@
 package com.example.android_project.appUI.object;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class movie {
+    private String posterName;
+    private String movieID;
     private String movieName;
     private String directorName;
     private String[] casterName;
     private String category;
-    private LocalDate debutDate;
+    private String debutDate;
     private int duration;   //in min
     private String language;
-    private String posterName;
 
-    movie(String movieName, String directorName, String[] casterName,
-                             String category, LocalDate debutDate, int duration, String language) {
+    public movie(String movieID, String posterName, String movieName, String directorName, String[] casterName,
+                             String category, String debutDate, int duration, String language) {
+        this.posterName = posterName;
+        this.movieID = movieID;
         this.movieName = movieName;
         this.directorName = directorName;
         this.casterName = casterName;
@@ -21,6 +26,14 @@ public class movie {
         this.debutDate = debutDate;
         this.duration = duration;
         this.language = language;
+    }
+
+    public String getPosterName(){
+        return posterName;
+    }
+
+    public String getMovieID(){
+        return movieID;
     }
 
     public String getMovieName(){
@@ -35,11 +48,26 @@ public class movie {
         return casterName;
     }
 
+    public String getConcatenateCasterName(){
+        StringBuilder result = new StringBuilder();
+        int i = 0;
+        if(casterName.length != 0) {
+            i = 0;
+            while (i < casterName.length) {
+                result.append(casterName[i]);
+                if(i != casterName.length - 1)
+                    result.append(", ");
+                i++;
+            }
+        }
+        return result.toString();
+    }
+
     public String getCategory(){
         return category;
     }
 
-    public LocalDate getDebutDate(){
+    public String getDebutDate(){
         return debutDate;
     }
 
@@ -50,4 +78,5 @@ public class movie {
     public String getLanguage(){
         return language;
     }
+
 }

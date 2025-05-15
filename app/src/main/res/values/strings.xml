@@ -7,11 +7,42 @@
         This is a real time system connected to a clouding database, you can
         know the status of the actual theater slots and make your own choice.
     </string>
-    <string name="description_template">
+
+    <string name="mov_86_description">
         "86 -Eighty Six-" is a 2021-2022 anime series that centers on the conflict
         between the Republic of San Magnolia and the Empire of Giad. While the Republic
         claims to be fighting a "war without casualties" using unmanned drones,
         the reality is that young people, branded the "86," are forced to pilot those drones
         in a devastating and unequal conflict.
+    </string>
+
+    <string name="mov_josee_description">
+        "Josee, the Tiger and the Fish" is a 2020 Japanese animated romance film that tells
+        the story of Tsuneo, a marine biology student, and Josee, a young woman with paraplegia,
+        who becomes his caretaker. The film explores themes of love, friendship, overcoming fears,
+        and the beauty of embracing life challenges.
+    </string>
+
+    <string name="mov_violet_description">
+        Violet Evergarden is a Japanese anime series about a young ex-soldier named Violet,
+        who works as an Auto Memory Doll, writing letters for people who cannot write themselves.
+        The story follows Violet as she navigates a new life after a war, struggles to understand
+        her own emotions, and seeks the meaning behind her past relationship with her commanding officer,
+        Gilbert. She learns about love, grief, and other human emotions through her work and personal
+        experiences, ultimately finding a sense of purpose and connection.
+    </string>
+
+    <string name="mov_yourlie_description">
+        "Your Lie in April" (also known as "Shigatsu wa Kimi no Uso") is a Japanese anime and manga series that
+        follows a young piano prodigy, Kousei Arima, who loses his ability to play after his mother death.
+        He eventually meets an eccentric violinist, Kaori Miyazono, who helps him rediscover his passion for music,
+        leading to a journey of healing and self-discovery. The series explores themes of grief, trauma, and
+        the power of music in overcoming adversity.
+    </string>
+
+    <string name="mov_yourname_description">
+        "Your Name" is a 2016 Japanese animated fantasy film written and directed by Makoto Shinkai,
+        produced by CoMix Wave Films, and distributed by Toho. The film follows two high school students,
+        Taki Tachibana and Mitsuha Miyamizu, who inexplicably begin to swap bodies.
     </string>
 </resources>

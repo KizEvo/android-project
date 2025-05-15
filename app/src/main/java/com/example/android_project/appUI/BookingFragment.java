@@ -1,8 +1,6 @@
 package com.example.android_project.appUI;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -94,7 +92,7 @@ public class BookingFragment extends Fragment {
     //Click Listener
     private void setupBannerClickListeners(View view) {
         int[] bannerIds = {R.id.banner1, R.id.banner2, R.id.banner3, R.id.banner4, R.id.banner5};
-        String[] bannerNames = {"banner1", "banner2", "banner3", "banner4", "banner5"};
+        String[] bannerNames = {"mov_86", "mov_josee", "mov_violet", "mov_yourname", "mov_yourlie"};
 
         for (int i = 0; i < bannerIds.length; i++) {
             ImageView banner = view.findViewById(bannerIds[i]);
