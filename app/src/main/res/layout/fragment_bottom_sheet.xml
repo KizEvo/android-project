@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurface"
+        android:text="Select an Option"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_margin="5dp"
+        android:id="@+id/opt1BT"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:background="@drawable/round_rectangle_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Option 1"/>
+
+    <Button
+        android:layout_margin="5dp"
+        android:id="@+id/opt2BT"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:background="@drawable/round_rectangle_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Option 2"/>
+</LinearLayout>

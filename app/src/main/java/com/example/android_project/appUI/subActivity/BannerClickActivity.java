@@ -29,6 +29,7 @@ public class BannerClickActivity extends AppCompatActivity {
     private String choseBanner;
     private TextView directorTV, actorTV, categoryTV, releaseDateTV, durationTV, titleTV, descriptionTV;
     private ImageView posterIV;
+    private Button bookingBT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +121,15 @@ public class BannerClickActivity extends AppCompatActivity {
 
                 // Update the UI after fetching
                 updateUI();
+
+                bookingBT = findViewById(R.id.bookingBT);
+                bookingBT.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        BottomSheetFragment bottomSheetFragment = BottomSheetFragment.newInstance("Air 1", "Air 2");
+                        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+                    }
+                });
             }
 
             @Override

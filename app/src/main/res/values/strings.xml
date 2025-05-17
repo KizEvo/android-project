@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Movie Tickets Booking</string>
-    <string name="app_version">Version 1.0.0</string>
+    <string name="app_version">Version 1.3.0</string>
     <string name="project_introduction">
         Within a smartphone connecting to the Internet, we can pick a favorite movie,
         select a suitable airing time and seats for a movie ticket booking at home.
