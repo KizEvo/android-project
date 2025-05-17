@@ -3,6 +3,8 @@ package com.example.android_project.appUI.object;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class movie {
     private String posterName;
@@ -14,9 +16,10 @@ public class movie {
     private String debutDate;
     private int duration;   //in min
     private String language;
+    private List<String> airTimeStr = new ArrayList<>();
 
     public movie(String movieID, String posterName, String movieName, String directorName, String[] casterName,
-                             String category, String debutDate, int duration, String language) {
+                             String category, String debutDate, int duration, String language, List <String> airTimeStr) {
         this.posterName = posterName;
         this.movieID = movieID;
         this.movieName = movieName;
@@ -26,6 +29,11 @@ public class movie {
         this.debutDate = debutDate;
         this.duration = duration;
         this.language = language;
+        this.airTimeStr = airTimeStr;
+    }
+
+    public void setAirTimeStr(List<String> airTimeStrArr){
+        this.airTimeStr = airTimeStrArr;
     }
 
     public String getPosterName(){
@@ -77,6 +85,14 @@ public class movie {
 
     public String getLanguage(){
         return language;
+    }
+
+    public List<String> getAirTimeStr(){
+        return airTimeStr;
+    }
+
+    public void addAirTimeStr (String strToAdd){
+        this.airTimeStr.add(strToAdd);
     }
 
 }

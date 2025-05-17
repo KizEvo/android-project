@@ -19,6 +19,7 @@ import com.example.android_project.appUI.object.movie;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,8 +63,11 @@ public class BannerClickActivity extends AppCompatActivity {
         // Initialize the fetcher
         documentFetcher = new FirestoreDocumentFetcher(db);
 
-        // Fetch data from Firestore
+        // Fetch movie data from Firestore/MTBMovie
         fetchMovieData();
+
+        // Fetch air time from Firestore/MTBAir
+        fetchAirData();
 
         // Back to HomePage
         Button backBT = findViewById(R.id.backBT);
@@ -113,7 +117,8 @@ public class BannerClickActivity extends AppCompatActivity {
                     String language = document.getString("language");
 
                     // Create and store movie objects
-                    movie x = new movie(documentId, posterName, movieName, directorName, casterName, category, debutDate, duration, language);
+                    List <String> emptyList= new ArrayList<>();
+                    movie x = new movie(documentId, posterName, movieName, directorName, casterName, category, debutDate, duration, language, emptyList);
                     movieList.put(documentId, x);
 
                     Log.d(TAG, "Document ID: " + documentId + ", poster name: " + posterName + ", movie name: " + movieName);
@@ -122,11 +127,67 @@ public class BannerClickActivity extends AppCompatActivity {
                 // Update the UI after fetching
                 updateUI();
 
+//                bookingBT = findViewById(R.id.bookingBT);
+//                bookingBT.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        BottomSheetFragment bottomSheetFragment = BottomSheetFragment.newInstance("Air 1", "Air 2");
+//                        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+//                    }
+//                });
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Log.e(TAG, "Error fetching collection", e);
+            }
+        });
+    }
+
+    private void fetchAirData() {
+        // Fetch all documents from the "MTBAir" collection
+        documentFetcher.fetchAllDocuments("MTBAir", new FirestoreDocumentFetcher.CollectionCallback() {
+            @Override
+            public void onSuccess(List<DocumentSnapshot> documents) {
+                Log.d("Firestore", "Fetched " + documents.size() + " documents");
+                if (documents.isEmpty()) {
+                    Log.d(TAG, "Empty document");
+                    return;
+                }
+
+                // Process the documents
+                for (DocumentSnapshot document : documents) {
+                    // Get ID (Air Time String)
+                    String airTime = document.getId();
+                    // Get movie list
+                    List<String> movieIDList = (List<String>) document.get("movie");
+                    if(movieIDList != null) {
+                        for (String movieID : movieIDList) {
+                            if(movieList.containsKey(movieID)){
+                                movieList.get(movieID).addAirTimeStr(airTime);
+                                Log.d(TAG, "MovieID: " + movieID + ", Air Time: " + airTime);
+                            }
+                        }
+                    }
+                }
+
+                // Update option labels
                 bookingBT = findViewById(R.id.bookingBT);
                 bookingBT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        BottomSheetFragment bottomSheetFragment = BottomSheetFragment.newInstance("Air 1", "Air 2");
+                        String labelBT0 = "Not Available Yet";
+                        String labelBT1 = "Not Available Yet";
+
+                        if (choseBanner != null && movieList.containsKey(choseBanner)) {
+                            List<String> airTimeList = movieList.get(choseBanner).getAirTimeStr();
+                            if(airTimeList.size() >= 1)
+                                labelBT0 = airTimeList.get(0);
+                            if(airTimeList.size() >= 2)
+                                labelBT1 = airTimeList.get(1);
+                        }
+
+                        BottomSheetFragment bottomSheetFragment = BottomSheetFragment.newInstance(labelBT0, labelBT1);
                         bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
                     }
                 });
