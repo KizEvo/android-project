@@ -127,14 +127,6 @@ public class BannerClickActivity extends AppCompatActivity {
                 // Update the UI after fetching
                 updateUI();
 
-//                bookingBT = findViewById(R.id.bookingBT);
-//                bookingBT.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        BottomSheetFragment bottomSheetFragment = BottomSheetFragment.newInstance("Air 1", "Air 2");
-//                        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
-//                    }
-//                });
             }
 
             @Override
@@ -178,7 +170,6 @@ public class BannerClickActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         String labelBT0 = "Not Available Yet";
                         String labelBT1 = "Not Available Yet";
-
                         if (choseBanner != null && movieList.containsKey(choseBanner)) {
                             List<String> airTimeList = movieList.get(choseBanner).getAirTimeStr();
                             if(airTimeList.size() >= 1)
@@ -211,7 +202,7 @@ public class BannerClickActivity extends AppCompatActivity {
             actorTV.setText(x.getConcatenateCasterName());
             categoryTV.setText(x.getCategory());
             releaseDateTV.setText(x.getDebutDate());
-            durationTV.setText(String.valueOf(x.getDuration()));
+            durationTV.setText(String.valueOf(x.getDuration()) + " min");
 
             //Set the poster image and description
             if(x.getPosterName().equals("poster_86")){
@@ -237,4 +228,5 @@ public class BannerClickActivity extends AppCompatActivity {
             Log.d(TAG, "Available movies: " + movieList.keySet());
         }
     }
+
 }

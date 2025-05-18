@@ -1,5 +1,6 @@
 package com.example.android_project.appUI.subActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +31,38 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         // Set text dynamically
         Button option1Button = view.findViewById(R.id.opt1BT);
         Button option2Button = view.findViewById(R.id.opt2BT);
-        option1Button.setText(option1Text);
-        option2Button.setText(option2Text);
+
+        // Set click ability base on state
+        if(option1Text.equals("Not Available Yet")) {
+            option1Button.setText(option1Text);
+            option1Button.setClickable(false);
+        } else {
+            option1Button.setText(translateAirTimeStr(option1Text));
+            // Button click listener
+            option1Button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), SelectSeatActivity.class);
+                    intent.putExtra("choseAir", option1Text);
+                    startActivity(intent);
+                }
+            });
+        }
+        if(option2Text.equals("Not Available Yet")) {
+            option2Button.setText(option2Text);
+            option2Button.setClickable(false);
+        } else {
+            option2Button.setText(translateAirTimeStr(option2Text));
+            // Button click listener
+            option2Button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), SelectSeatActivity.class);
+                    intent.putExtra("choseAir", option2Text);
+                    startActivity(intent);
+                }
+            });
+        }
 
         return view;
     }
@@ -44,5 +75,19 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         args.putString("OPTION_2", option2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    // Translate air_202514051300 -> 13:00 - 14/05/2025
+    private String translateAirTimeStr(String inputString) {
+        // Assume that inputString has format of: air_202514051300
+        //                                        0   4   8 ^ ^
+        if(inputString.length() != 16) {
+            return "Invalid Format airString";
+        }
+        String airTime = inputString.substring(12, 14) + ":" + inputString.substring(14);
+        String airDate =  inputString.substring(8, 10) + "/"
+                + inputString.substring(10, 12) + "/"
+                + inputString.substring(4, 8);
+        return airTime + " - " + airDate;
     }
 }
