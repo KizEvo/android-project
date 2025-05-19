@@ -1,5 +1,8 @@
 package com.example.android_project.appUI.object;
 
+import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class user {
@@ -7,13 +10,13 @@ public class user {
     // slot when a user book a ticket
     private List<String> booked;
     // Movie ID, e.g mov_josee
-    private List<String> movId;
+    private List<String> movId = new ArrayList<>();
     // Air ID, e.g air_202514051300
-    private List<String> airId;
+    private List<String> airId = new ArrayList<>();
     // Room, e.g room_1
-    private List<String> room;
+    private List<String> room = new ArrayList<>();
     // slot, e.g slot_1
-    private List<String> slot;
+    private List<String> slot = new ArrayList<>();
 
     public user(List<String> booked) {
         this.booked = booked;
