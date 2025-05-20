@@ -23,6 +23,8 @@ import java.util.List;
 
 public class SelectSeatActivity extends AppCompatActivity {
     private String choseAir;
+    private String movID;
+    private String movTitle;
     private Boolean[] seatState = new Boolean[32];
     private FirestoreDocumentFetcher documentFetcher;
     private static final String TAG = "SelectSeatActivity";
@@ -42,6 +44,8 @@ public class SelectSeatActivity extends AppCompatActivity {
 
         // Get Intent from BookingFragment
         choseAir = getIntent().getStringExtra("choseAir");
+        movID = getIntent().getStringExtra("movID");
+        movTitle = getIntent().getStringExtra("movTitle");
 
         // Initialize Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -70,8 +74,8 @@ public class SelectSeatActivity extends AppCompatActivity {
         });
 
         // Expand zoneB map
-        GridLayout zoneBGL = findViewById(R.id.zoneBGL);
         Button zoneBToggleBT = findViewById(R.id.zoneBToggleBT);
+        GridLayout zoneBGL = findViewById(R.id.zoneBGL);
         zoneBToggleBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,6 +150,8 @@ public class SelectSeatActivity extends AppCompatActivity {
         for (int i = 0; i < 32; i++) {
             Button seatBT = findViewById(seatIds[i]);
 
+            final String seatNum = String.valueOf(i+1);
+
             if(seatState[i]) {
                 seatBT.setBackgroundResource(R.drawable.round_rectangle_seat_button_full);
                 seatBT.setClickable(false);
@@ -154,9 +160,12 @@ public class SelectSeatActivity extends AppCompatActivity {
                 seatBT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(getActivity(), BannerClickActivity.class);
-//                        intent.putExtra("choseBanner", bannerName);
-//                        startActivity(intent);
+                        Intent intent = new Intent(SelectSeatActivity.this, ConfirmBookingActivity.class);
+                        intent.putExtra("seatNum", seatNum);
+                        intent.putExtra("choseAir", choseAir);
+                        intent.putExtra("movTitle", movTitle);
+                        intent.putExtra("movID", movID);
+                        startActivity(intent);
                     }
                 });
             }

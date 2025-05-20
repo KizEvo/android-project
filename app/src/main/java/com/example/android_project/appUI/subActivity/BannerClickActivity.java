@@ -28,6 +28,7 @@ public class BannerClickActivity extends AppCompatActivity {
     private FirestoreDocumentFetcher documentFetcher;
     private static final String TAG = "BannerClickActivity";
     private String choseBanner;
+    private String movieTitle;
     private TextView directorTV, actorTV, categoryTV, releaseDateTV, durationTV, titleTV, descriptionTV;
     private ImageView posterIV;
     private Button bookingBT;
@@ -179,6 +180,8 @@ public class BannerClickActivity extends AppCompatActivity {
                         }
 
                         BottomSheetFragment bottomSheetFragment = BottomSheetFragment.newInstance(labelBT0, labelBT1);
+                        bottomSheetFragment.setMovID(choseBanner);
+                        bottomSheetFragment.setMovTitle(movieTitle);
                         bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
                     }
                 });
@@ -195,6 +198,9 @@ public class BannerClickActivity extends AppCompatActivity {
         if (choseBanner != null && movieList.containsKey(choseBanner)) {
             movie x = movieList.get(choseBanner);
             Log.d("DEBUG2", "Found movie: " + x.getMovieName());
+
+            // Get movie title (-> BottomSheetFragment -> SelectSeatActicity -> ConfirmBookingActivity)
+            movieTitle = x.getMovieName();
 
             // Update UI with movie data
             titleTV.setText(x.getMovieName());

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Androidproject"
         tools:targetApi="31">
         <activity
+            android:name=".appUI.subActivity.ConfirmBookingActivity"
+            android:exported="false" />
+        <activity
             android:name=".appUI.subActivity.SelectSeatActivity"
             android:exported="false" />
         <activity
@@ -21,11 +24,12 @@
         <activity
             android:name=".appUI.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
         </activity>
         <activity
             android:name=".loginUI.RegisterActivity"
@@ -33,11 +37,11 @@
         <activity
             android:name=".loginUI.LoginActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

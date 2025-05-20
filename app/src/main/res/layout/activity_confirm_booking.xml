@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/confirmBookingLL"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".appUI.subActivity.ConfirmBookingActivity">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/ticket_bg">
+        <TextView
+            android:id="@+id/movieTitleTV"
+            android:layout_marginTop="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movie Title"
+            android:textSize="22sp"
+            android:textColor="#2F2F2F"/>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="5"
+            android:columnCount="2"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_marginLeft="8dp"
+                android:text="Date"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_marginRight="8dp"
+                android:text="Time"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/airDateTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_marginLeft="8dp"
+                android:text="19/05/2025"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/airTimeTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_marginRight="8dp"
+                android:text="12:00"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp"
+                android:text="Room"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="20dp"
+                android:text="Seat"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/roomNumberTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_marginLeft="8dp"
+                android:text="1"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/seatNumTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_marginRight="8dp"
+                android:text="17"
+                android:textSize="16sp"/>
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/ticketIDTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
+            android:text="TicketID"
+            android:textStyle="italic"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Note"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="Please show this E-Ticket to Theater staff!"
+            android:textSize="16sp"
+            android:textStyle="italic"/>
+
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:src="@drawable/barcode_bg"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/returnBT"
+            android:layout_margin="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Return"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/round_rectangle_return_button"/>
+
+        <Button
+            android:id="@+id/confirmBT"
+            android:layout_margin="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Confirm"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/round_rectangle_confirm_button"/>
+
+    </LinearLayout>
+
+</LinearLayout>

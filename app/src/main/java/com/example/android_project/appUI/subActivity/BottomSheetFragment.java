@@ -16,6 +16,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class BottomSheetFragment extends BottomSheetDialogFragment {
     private String option1Text;
     private String option2Text;
+    private String movID;
+    private String movTitle;
 
     @Nullable
     @Override
@@ -44,6 +46,8 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), SelectSeatActivity.class);
                     intent.putExtra("choseAir", option1Text);
+                    intent.putExtra("movID", movID);
+                    intent.putExtra("movTitle", movTitle);
                     startActivity(intent);
                 }
             });
@@ -59,6 +63,8 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), SelectSeatActivity.class);
                     intent.putExtra("choseAir", option2Text);
+                    intent.putExtra("movID", movID);
+                    intent.putExtra("movTitle", movTitle);
                     startActivity(intent);
                 }
             });
@@ -67,6 +73,13 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         return view;
     }
 
+    public void setMovID(String movID) {
+        this.movID = movID;
+    }
+
+    public void setMovTitle(String movTitle) {
+        this.movTitle = movTitle;
+    }
     // Method to create instance with parameters
     public static BottomSheetFragment newInstance(String option1, String option2) {
         BottomSheetFragment fragment = new BottomSheetFragment();
