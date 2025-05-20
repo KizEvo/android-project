@@ -82,6 +82,10 @@ public class FirestoreDocumentFetcher {
             }
         });
     }
+    // Fetch document
+    public void fetchMTBUser(String documentId, @NonNull DocumentReadCallback callback) {
+        fetchDocument(userColl, documentId, callback);
+    }
 
     // Fetch all x document
     public void fetchAllMTBAir(@NonNull CollectionCallback callback) {
