@@ -1,10 +1,12 @@
 package com.example.android_project.appUI.subActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.android_project.R;
 import com.example.android_project.appUI.FirestoreDocumentFetcher;
+import com.example.android_project.appUI.object.user;
+import com.example.android_project.loginUI.RegisterActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -22,9 +28,10 @@ import java.util.List;
 public class ConfirmBookingActivity extends AppCompatActivity {
     private String movTitle, choseAir, roomNum, seatNum, airTime, movID, ticketID;
     private TextView movieTitleTV, airDateTV, airTimeTV, roomNumberTV, seatNumTV, ticketIDTV;
-
+    private String email;
     private FirestoreDocumentFetcher documentFetcher;
     private static final String TAG = "SelectSeatActivity";
+    private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +74,17 @@ public class ConfirmBookingActivity extends AppCompatActivity {
             }
         });
 
-        //Confirm booking
+        //Confirm booking button
         Button confirmBT = findViewById(R.id.confirmBT);
         confirmBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Send ticketID to MTB User under username
+                sendBookedArray();
+                //Notification
+                Toast.makeText(ConfirmBookingActivity.this, "Booked ticket successfully!",
+                        Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
@@ -103,6 +115,53 @@ public class ConfirmBookingActivity extends AppCompatActivity {
 
                 // Update UI
                 updateUI();
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Log.e(TAG, "Error fetching collection", e);
+            }
+        });
+    }
+
+    private void sendBookedArray() {
+        if(currentUser == null) {
+            return;
+        }
+        email = currentUser.getEmail();
+
+        // Fetch all documents from the "MTBAir" collection
+        documentFetcher.fetchAllDocuments("MTBUser", new FirestoreDocumentFetcher.CollectionCallback() {
+            @Override
+            public void onSuccess(List<DocumentSnapshot> documents) {
+                Log.d("Firestore", "Fetched " + documents.size() + " documents");
+                if (documents.isEmpty()) {
+                    Log.d(TAG, "Empty document");
+                    return;
+                }
+
+                // Process the documents
+                for (DocumentSnapshot document : documents) {
+                    // Get userEmail
+                    String userEmail = document.getId();
+                    if(userEmail.equals(email)){
+                        List<String> bookedList = (List<String>) document.get("booked");
+                        bookedList.add(ticketID);
+                        user userObj = new user(bookedList);
+                        documentFetcher.addMTBUserDocument(userEmail, userObj, new FirestoreDocumentFetcher.DocumentAddCallback() {
+                            @Override
+                            public void onSuccess() {
+                                Log.d(TAG, "Added user to Firestore");
+                            }
+
+                            @Override
+                            public void onFailure(Exception e) {
+                                Log.d(TAG, "Failed to add user to Firestore");
+                            }
+                        });
+                        break;
+                    }
+                }
             }
 
             @Override

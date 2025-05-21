@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_iconIV"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:src="@drawable/poster_86"
+        android:contentDescription="Icon" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp">
+
+        <TextView
+            android:id="@+id/item_titleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="movieTitle"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:id="@+id/item_dateNtimeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dd/mm/yyyy - hh:mm"
+            android:textSize="15sp"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:id="@+id/item_roomNslotTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="room_1 - slot #10"
+            android:textSize="15sp"
+            android:textColor="?attr/colorOnSurface" />
+    </LinearLayout>
+
+</LinearLayout>

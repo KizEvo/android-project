@@ -139,13 +139,13 @@ public class SelectSeatActivity extends AppCompatActivity {
 
     private void updateUI () {
         int[] seatIds = {R.id.seat1BT, R.id.seat2BT, R.id.seat3BT, R.id.seat4BT,
-                         R.id.seat5BT, R.id.seat6BT, R.id.seat7BT, R.id.seat8BT,
-                         R.id.seat9BT, R.id.seat10BT, R.id.seat11BT, R.id.seat12BT,
-                         R.id.seat13BT, R.id.seat14BT, R.id.seat15BT, R.id.seat16BT,
-                         R.id.seat17BT, R.id.seat18BT, R.id.seat19BT, R.id.seat20BT,
-                         R.id.seat21BT, R.id.seat22BT, R.id.seat23BT, R.id.seat24BT,
-                         R.id.seat25BT, R.id.seat26BT, R.id.seat27BT, R.id.seat28BT,
-                         R.id.seat29BT, R.id.seat30BT, R.id.seat31BT, R.id.seat32BT};
+                R.id.seat5BT, R.id.seat6BT, R.id.seat7BT, R.id.seat8BT,
+                R.id.seat9BT, R.id.seat10BT, R.id.seat11BT, R.id.seat12BT,
+                R.id.seat13BT, R.id.seat14BT, R.id.seat15BT, R.id.seat16BT,
+                R.id.seat17BT, R.id.seat18BT, R.id.seat19BT, R.id.seat20BT,
+                R.id.seat21BT, R.id.seat22BT, R.id.seat23BT, R.id.seat24BT,
+                R.id.seat25BT, R.id.seat26BT, R.id.seat27BT, R.id.seat28BT,
+                R.id.seat29BT, R.id.seat30BT, R.id.seat31BT, R.id.seat32BT};
 
         for (int i = 0; i < 32; i++) {
             Button seatBT = findViewById(seatIds[i]);

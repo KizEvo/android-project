@@ -169,6 +169,7 @@ public class BannerClickActivity extends AppCompatActivity {
                 bookingBT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         String labelBT0 = "Not Available Yet";
                         String labelBT1 = "Not Available Yet";
                         if (choseBanner != null && movieList.containsKey(choseBanner)) {
