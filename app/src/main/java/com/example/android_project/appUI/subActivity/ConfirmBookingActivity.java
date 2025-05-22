@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.android_project.R;
 import com.example.android_project.appUI.FirestoreDocumentFetcher;
+import com.example.android_project.appUI.object.air;
 import com.example.android_project.appUI.object.user;
 import com.example.android_project.loginUI.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,8 +80,12 @@ public class ConfirmBookingActivity extends AppCompatActivity {
         confirmBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Send ticketID to MTB User under username
+                //Send ticketID to MTBUser under username
                 sendBookedArray();
+
+                //Update slots status to MTBAir
+                updateSlotsArray();
+
                 //Notification
                 Toast.makeText(ConfirmBookingActivity.this, "Booked ticket successfully!",
                         Toast.LENGTH_SHORT).show();
@@ -115,6 +120,52 @@ public class ConfirmBookingActivity extends AppCompatActivity {
 
                 // Update UI
                 updateUI();
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Log.e(TAG, "Error fetching collection", e);
+            }
+        });
+    }
+
+    private void updateSlotsArray() {
+        // Fetch all documents from the "MTBAir" collection
+        documentFetcher.fetchAllDocuments("MTBAir", new FirestoreDocumentFetcher.CollectionCallback() {
+            @Override
+            public void onSuccess(List<DocumentSnapshot> documents) {
+                Log.d("Firestore", "Fetched " + documents.size() + " documents");
+                if (documents.isEmpty()) {
+                    Log.d(TAG, "Empty document");
+                    return;
+                }
+
+                // Process the documents
+                for (DocumentSnapshot document : documents) {
+                    // Get airTime
+                    String airTime = document.getId();
+                    if(airTime.equals(choseAir)){
+                        List<String> movieList = (List<String>) document.get("movie");
+                        List<String> roomList = (List<String>) document.get("room");
+                        List<Boolean> slotList = (List<Boolean>) document.get("slot");
+                        if(slotList != null)
+                            slotList.set(Integer.parseInt(seatNum)-1, true);
+
+                        air airObj = new air(movieList, roomList, slotList);
+                        documentFetcher.addMTBAirDocument(airTime, airObj, new FirestoreDocumentFetcher.DocumentAddCallback() {
+                            @Override
+                            public void onSuccess() {
+                                Log.d(TAG, "Added user to Firestore");
+                            }
+
+                            @Override
+                            public void onFailure(Exception e) {
+                                Log.d(TAG, "Failed to add user to Firestore");
+                            }
+                        });
+                        break;
+                    }
+                }
             }
 
             @Override
